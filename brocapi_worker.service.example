@@ -1,0 +1,14 @@
+[Unit]
+Description=Brocapi Service
+After=network.target
+
+[Service]
+RuntimeDirectory=brocapi
+PIDFile=/var/run/brocapi/brocapi_worker.pid
+User=bro
+Group=bro
+WorkingDirectory=/opt/brocapi/brocapi
+ExecStart=/usr/bin/supervisord -c /etc/supervisord.d/brocapi.ini
+
+[Install]
+WantedBy=multi-user.target

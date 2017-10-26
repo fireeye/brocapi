@@ -1,0 +1,14 @@
+[Unit]
+Description=Brocapi Service
+After=network.target
+
+[Service]
+RuntimeDirectory=brocapi
+PIDFile=/var/run/brocapi/brocapi.pid
+User=bro
+Group=bro
+WorkingDirectory=/opt/brocapi/brocapi
+ExecStart=/usr/bin/gunicorn -k gevent --bind 192.168.100.2:8888 --pid /var/run/brocapi/brocapi.pid --log-file=/var/log/brocapi/brocapi.log --log-level=DEBUG --workers 4 brocapi:app
+
+[Install]
+WantedBy=multi-user.target

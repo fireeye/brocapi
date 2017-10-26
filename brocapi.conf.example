@@ -1,0 +1,25 @@
+[main]
+# debug logging
+debug = on
+# worker log file
+worker_log = /var/log/brocapi/brocapi_worker.log
+# api log file
+api_log = /var/log/brocapi/brocapi_api.log
+
+[bro]
+# location of your Bro binary
+bro_bin = /opt/bro/bin/bro
+# directory to contain job output
+processing_dir = /opt/brocapi/jobs/
+# bro logs to ignore completely
+log_blacklist = ["loaded_scripts.log", "packet_filter.log", "reporter.log"]
+
+[syslog]
+# syslog host
+syslog_host = 127.0.0.1
+# syslog port
+syslog_port = 514
+# syslog protocol (tcp/udp)
+syslog_proto = tcp
+# syslog program prefix (format string)
+syslog_prefix = bro25_%s
