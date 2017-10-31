@@ -1,5 +1,5 @@
 ## Brocapi
-HTTP API for mass processing PCAPs through Bro IDS and submitting the resulting logs to a syslog server.
+HTTP API for mass processing PCAPs through Bro IDS, tagging, and submitting the resulting logs to a syslog server.
 
 ## Overview
 Brocapi consists of two parts: 
@@ -80,7 +80,7 @@ Example submissions using Curl with a job tag:
 {"status": "job queued", "files": ["2017-08-28-Fobos-campaign-Rig-EK-sends-Bunitu.pcap"], "tag": "testing", "job_id": "507965ab-6511-4cd4-9542-4671eb140f92", "success": true}%
 ```
 
-### Exmplaining the returned data:
+### Returned data:
 ```
 {
   "status": "job queued",                                 ## Status of the job. Right now the only value is "job queued" since we're not async and waiting on the full status
